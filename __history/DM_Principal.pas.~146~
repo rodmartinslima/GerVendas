@@ -1,0 +1,52 @@
+unit DM_Principal;
+
+interface
+
+uses
+  SysUtils, Classes, WideStrings, DBXFirebird, SqlExpr, DB, IBCustomDataSet,
+  IBDatabase, IniFiles;
+
+type
+  TDataModule1 = class(TDataModule)
+    dbprincipal: TIBDatabase;
+    IBTransaction1: TIBTransaction;
+    SQLConnection1: TSQLConnection;
+  private
+    //Geral
+  public
+    //Geral
+    FCaminhoBD: string;
+    function Gerador(campo, tabela: String): Integer;
+  end;
+
+var
+  DataModule1: TDataModule1;
+
+implementation
+
+{$R *.dfm}
+
+{ TDataModule }
+
+function TDataModule1.Gerador(campo, tabela: String): Integer;
+var
+  Sql: String;
+  Qry: TSQLQuery;
+begin
+  Sql := 'SELECT MAX( '+ campo +') AS GERADOR FROM ' + tabela;
+
+  Qry := TSQLQuery.Create(nil);
+  try
+    Qry.SQLConnection := Self.SQLConnection1;
+    Qry.SQL.Clear;
+    Qry.SQL.Text := Sql;
+    Qry.Open;
+    Result := Qry.FieldByName('GERADOR').AsInteger;
+    Result := Result + 1;
+  finally
+    Qry.Close;
+    FreeAndNil(Qry);
+  end;
+end;
+
+end.

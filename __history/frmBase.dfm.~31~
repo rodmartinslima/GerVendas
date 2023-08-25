@@ -1,0 +1,170 @@
+﻿object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'frmBase'
+  ClientHeight = 360
+  ClientWidth = 781
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  WindowState = wsMaximized
+  PixelsPerInch = 96
+  TextHeight = 13
+  object panMenu: TPanel
+    Left = 0
+    Top = 0
+    Width = 781
+    Height = 50
+    Align = alTop
+    BevelOuter = bvNone
+    Color = 5395026
+    ParentBackground = False
+    TabOrder = 0
+    ExplicitWidth = 593
+    object labMsgPadrão: TLabel
+      AlignWithMargins = True
+      Left = 665
+      Top = 3
+      Width = 106
+      Height = 44
+      Margins.Right = 10
+      Align = alRight
+      Alignment = taCenter
+      Caption = 'MSG PADR'#195'O '
+      Color = 15658734
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 15658734
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+      ExplicitLeft = 477
+      ExplicitHeight = 19
+    end
+    object DBNavi: TDBNavigator
+      AlignWithMargins = True
+      Left = 5
+      Top = 3
+      Width = 319
+      Height = 44
+      Margins.Left = 5
+      VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbEdit, nbCancel, nbRefresh]
+      Align = alLeft
+      ConfirmDelete = False
+      TabOrder = 0
+    end
+  end
+  object panPesquisa: TPanel
+    Left = 0
+    Top = 50
+    Width = 781
+    Height = 35
+    Align = alTop
+    BevelOuter = bvNone
+    Color = clGradientActiveCaption
+    ParentBackground = False
+    TabOrder = 1
+    ExplicitWidth = 593
+    DesignSize = (
+      781
+      35)
+    object labTpPesquisa: TLabel
+      Left = 20
+      Top = 8
+      Width = 94
+      Height = 16
+      Caption = 'Pesquisar por:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object cbxPesquisar: TComboBox
+      Left = 120
+      Top = 6
+      Width = 121
+      Height = 21
+      ItemIndex = 0
+      TabOrder = 0
+      Text = 'Nome/Descri'#231#227'o'
+      Items.Strings = (
+        'Nome/Descri'#231#227'o'
+        'C'#243'digo/ID')
+    end
+    object edtPesquisar: TEdit
+      Left = 247
+      Top = 6
+      Width = 322
+      Height = 21
+      Hint = 'Pressione ENTER para confirmar a busca'
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+      TextHint = 'Digite o valor para pesquisar'
+    end
+    object btnPesquisar: TButton
+      Left = 575
+      Top = 5
+      Width = 65
+      Height = 25
+      Anchors = [akLeft]
+      Caption = 'Pesquisar'
+      TabOrder = 2
+    end
+  end
+  object panBackground: TPanel
+    Left = 0
+    Top = 85
+    Width = 781
+    Height = 235
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 2
+    ExplicitWidth = 593
+    object dbgPrincipal: TDBGrid
+      Left = 0
+      Top = 0
+      Width = 781
+      Height = 235
+      Align = alClient
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+    end
+  end
+  object panRodape: TPanel
+    Left = 0
+    Top = 320
+    Width = 781
+    Height = 40
+    Align = alBottom
+    BevelOuter = bvNone
+    Color = clGradientActiveCaption
+    ParentBackground = False
+    TabOrder = 3
+    ExplicitWidth = 593
+    object btnSair: TButton
+      AlignWithMargins = True
+      Left = 674
+      Top = 3
+      Width = 97
+      Height = 34
+      Margins.Right = 10
+      Align = alRight
+      Caption = 'Sair'
+      TabOrder = 0
+      ExplicitLeft = 486
+    end
+  end
+end

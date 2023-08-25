@@ -1,0 +1,300 @@
+﻿inherited frmProdutos: TfrmProdutos
+  Caption = ''
+  ClientHeight = 387
+  ClientWidth = 897
+  OnClose = FormClose
+  OnShow = FormShow
+  ExplicitWidth = 913
+  ExplicitHeight = 426
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited panMenu: TPanel
+    Width = 897
+    ExplicitWidth = 897
+    inherited labMsgPadrão: TLabel
+      Left = 781
+      Height = 44
+      ExplicitLeft = 781
+    end
+    inherited DBNavi: TDBNavigator
+      DataSource = DataSourceProdutos
+      Hints.Strings = ()
+    end
+  end
+  inherited panPesquisa: TPanel
+    Width = 897
+    ExplicitWidth = 897
+    inherited btnPesquisar: TButton
+      Width = 90
+      ExplicitWidth = 90
+    end
+    object cbxCadastroDetalhado: TCheckBox
+      Left = 767
+      Top = 0
+      Width = 130
+      Height = 35
+      Align = alRight
+      Caption = 'Cadastro Detalhado'
+      Color = 5395026
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 3
+    end
+  end
+  inherited panBackground: TPanel
+    Width = 897
+    Height = 262
+    ExplicitWidth = 897
+    ExplicitHeight = 262
+    inherited dbgPrincipal: TDBGrid
+      Width = 897
+      Height = 262
+      DataSource = DataSourceProdutos
+      ParentFont = False
+      TitleFont.Style = [fsBold]
+      OnColExit = dbgPrincipalColExit
+      OnDblClick = dbgPrincipalDblClick
+      Columns = <
+        item
+          Color = 10671092
+          Expanded = False
+          FieldName = 'IDPROD'
+          ReadOnly = True
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'DESCRICAO'
+          Width = 350
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'PRCVENDA'
+          Width = 120
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'MARGEM'
+          Width = 90
+          Visible = True
+        end
+        item
+          Color = 10671092
+          Expanded = False
+          FieldName = 'PRCREPASSE'
+          ReadOnly = True
+          Width = 120
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'IDFORNEC'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'NOMEFORNEC'
+          Width = 300
+          Visible = True
+        end
+        item
+          Color = 10671092
+          Expanded = False
+          FieldName = 'DATA_CADASTRO'
+          Width = 100
+          Visible = True
+        end
+        item
+          Color = 10671092
+          Expanded = False
+          FieldName = 'HORA_CADASTRO'
+          ReadOnly = True
+          Visible = True
+        end
+        item
+          Color = 10671092
+          Expanded = False
+          FieldName = 'DATA_VENDA'
+          Width = 100
+          Visible = True
+        end
+        item
+          Color = 10671092
+          Expanded = False
+          FieldName = 'HORA_VENDA'
+          ReadOnly = True
+          Visible = True
+        end>
+    end
+  end
+  inherited panRodape: TPanel
+    Top = 347
+    Width = 897
+    ExplicitTop = 347
+    ExplicitWidth = 897
+    inherited btnSair: TButton
+      Left = 790
+      ExplicitLeft = 790
+    end
+  end
+  object DataBaseProd: TIBDatabase [4]
+    Connected = True
+    DatabaseName = 'C:\Users\rodri\Desktop\Delphi\GerVendas\BD\GERVENDAS.FDB'
+    Params.Strings = (
+      'user_name=SYSDBA'
+      'password=masterkey')
+    LoginPrompt = False
+    DefaultTransaction = IBTransactionProd
+    Left = 312
+    Top = 312
+  end
+  object IBTransactionProd: TIBTransaction [5]
+    Active = True
+    DefaultDatabase = DataBaseProd
+    DefaultAction = TACommitRetaining
+    Left = 408
+    Top = 312
+  end
+  object TabProdutos: TIBTable [6]
+    Database = DataBaseProd
+    Transaction = IBTransactionProd
+    AfterDelete = TabProdutosAfterDelete
+    AfterEdit = TabProdutosAfterEdit
+    AfterInsert = TabProdutosAfterInsert
+    BeforeDelete = TabProdutosBeforeDelete
+    BeforeEdit = TabProdutosBeforeEdit
+    BeforeInsert = TabProdutosBeforeInsert
+    BeforePost = TabProdutosBeforePost
+    OnNewRecord = TabProdutosNewRecord
+    Active = True
+    FieldDefs = <
+      item
+        Name = 'IDPROD'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'DESCRICAO'
+        DataType = ftWideString
+        Size = 200
+      end
+      item
+        Name = 'PRCVENDA'
+        DataType = ftFloat
+      end
+      item
+        Name = 'MARGEM'
+        DataType = ftFloat
+      end
+      item
+        Name = 'PRCREPASSE'
+        DataType = ftFloat
+      end
+      item
+        Name = 'DATA_CADASTRO'
+        DataType = ftDate
+      end
+      item
+        Name = 'DATA_VENDA'
+        DataType = ftDate
+      end
+      item
+        Name = 'HORA_CADASTRO'
+        DataType = ftTime
+      end
+      item
+        Name = 'HORA_VENDA'
+        DataType = ftTime
+      end
+      item
+        Name = 'IDFORNEC'
+        DataType = ftInteger
+      end
+      item
+        Name = 'NOMEFORNEC'
+        DataType = ftWideString
+        Size = 200
+      end>
+    IndexDefs = <
+      item
+        Name = 'PK_PRODUTO_ID'
+        Fields = 'IDPROD'
+        Options = [ixUnique]
+      end>
+    StoreDefs = True
+    TableName = 'PRODUTOS'
+    Left = 488
+    Top = 312
+    object TabProdutosIDPROD: TIntegerField
+      AutoGenerateValue = arAutoInc
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'IDPROD'
+    end
+    object TabProdutosDESCRICAO: TIBStringField
+      DisplayLabel = 'Descri'#231#227'o'
+      FieldName = 'DESCRICAO'
+      Size = 200
+    end
+    object TabProdutosPRCVENDA: TFloatField
+      DisplayLabel = 'Pre'#231'o Venda(R$)'
+      FieldName = 'PRCVENDA'
+      currency = True
+    end
+    object TabProdutosMARGEM: TFloatField
+      DisplayLabel = 'Margem(%)'
+      FieldName = 'MARGEM'
+    end
+    object TabProdutosPRCREPASSE: TFloatField
+      DisplayLabel = 'Pre'#231'o Repasse(R$)'
+      FieldName = 'PRCREPASSE'
+      currency = True
+    end
+    object TabProdutosDATA_CADASTRO: TDateField
+      DisplayLabel = 'Data Cadastro'
+      FieldName = 'DATA_CADASTRO'
+      ReadOnly = True
+      EditMask = '!99/99/00;1;_'
+    end
+    object TabProdutosHORA_CADASTRO: TTimeField
+      DisplayLabel = 'Hora Cadastro'
+      FieldName = 'HORA_CADASTRO'
+      EditMask = '!90:00:00>LL;1;_'
+    end
+    object TabProdutosDATA_VENDA: TDateField
+      DisplayLabel = 'Data Venda'
+      FieldName = 'DATA_VENDA'
+      ReadOnly = True
+      EditMask = '!99/99/00;1;_'
+    end
+    object TabProdutosHORA_VENDA: TTimeField
+      DisplayLabel = 'Hora Venda'
+      FieldName = 'HORA_VENDA'
+      EditMask = '!90:00:00>LL;1;_'
+    end
+    object TabProdutosIDFORNEC: TIntegerField
+      DisplayLabel = 'C'#243'digo Fornecedor'
+      FieldName = 'IDFORNEC'
+    end
+    object TabProdutosNOMEFORNEC: TIBStringField
+      DisplayLabel = 'Nome Fornecedor'
+      FieldName = 'NOMEFORNEC'
+      Size = 200
+    end
+  end
+  object DataSourceProdutos: TDataSource [7]
+    DataSet = TabProdutos
+    Left = 560
+    Top = 312
+  end
+  inherited actGeral: TActionList
+    Left = 840
+    Top = 8
+  end
+end

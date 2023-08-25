@@ -1,0 +1,358 @@
+object frmCadastroProdutos: TfrmCadastroProdutos
+  Left = 0
+  Top = 0
+  Caption = 'Cadastro de Produto'
+  ClientHeight = 381
+  ClientWidth = 545
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object panProdutos: TPanel
+    Left = 0
+    Top = 0
+    Width = 545
+    Height = 343
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+    ExplicitHeight = 170
+    object grbDadosItem: TGroupBox
+      Left = 0
+      Top = 0
+      Width = 545
+      Height = 57
+      Align = alTop
+      Caption = 'Dados do Produto'
+      TabOrder = 0
+      ExplicitLeft = 3
+      ExplicitWidth = 537
+      object labCodigo: TLabel
+        Left = 10
+        Top = 27
+        Width = 33
+        Height = 13
+        Caption = 'C'#243'digo'
+      end
+      object labDescricao: TLabel
+        Left = 114
+        Top = 27
+        Width = 27
+        Height = 13
+        Caption = 'Nome'
+      end
+      object edtCodigo: TDBEdit
+        Left = 49
+        Top = 24
+        Width = 46
+        Height = 21
+        Color = clInactiveCaption
+        ReadOnly = True
+        TabOrder = 0
+      end
+      object edtDescricao: TEdit
+        Left = 147
+        Top = 24
+        Width = 387
+        Height = 21
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 1
+        TextHint = 'Informe o nome do produto'
+      end
+    end
+    object grbPrecos: TGroupBox
+      Left = 0
+      Top = 57
+      Width = 545
+      Height = 64
+      Align = alClient
+      Caption = 'Pre'#231'os'
+      TabOrder = 1
+      ExplicitLeft = 3
+      ExplicitTop = 63
+      ExplicitWidth = 537
+      ExplicitHeight = 58
+      object labValorVenda: TLabel
+        Left = 10
+        Top = 27
+        Width = 72
+        Height = 13
+        Caption = 'Valor de Venda'
+      end
+      object labMargem: TLabel
+        Left = 164
+        Top = 27
+        Width = 89
+        Height = 13
+        Caption = '- Margem Repasse'
+      end
+      object labValorRepasse: TLabel
+        Left = 335
+        Top = 27
+        Width = 108
+        Height = 13
+        Caption = 'Valor Repasse (R$)'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object edtValorVenda: TEdit
+        Left = 88
+        Top = 24
+        Width = 70
+        Height = 21
+        NumbersOnly = True
+        TabOrder = 0
+        Text = '0,00'
+      end
+      object edtMargem: TEdit
+        Left = 259
+        Top = 24
+        Width = 70
+        Height = 21
+        NumbersOnly = True
+        TabOrder = 1
+        Text = '50'
+      end
+      object edtValorRepasse: TEdit
+        Left = 449
+        Top = 24
+        Width = 70
+        Height = 21
+        NumbersOnly = True
+        TabOrder = 2
+        Text = '0,00'
+      end
+    end
+    object grbFornec: TGroupBox
+      Left = 0
+      Top = 121
+      Width = 545
+      Height = 222
+      Align = alBottom
+      Caption = 'Fornecedores'
+      TabOrder = 2
+      ExplicitTop = 115
+      object edtCodFornec: TEdit
+        Left = 10
+        Top = 24
+        Width = 55
+        Height = 21
+        Color = clInactiveCaption
+        Enabled = False
+        ReadOnly = True
+        TabOrder = 0
+      end
+      object edtNomeFornec: TEdit
+        Left = 71
+        Top = 24
+        Width = 463
+        Height = 21
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 1
+        TextHint = 'Digite o nome e pressione Enter para pesquisar'
+        OnKeyPress = edtNomeFornecKeyPress
+      end
+      object grbFornecedores: TDBGrid
+        Left = 10
+        Top = 51
+        Width = 524
+        Height = 158
+        DataSource = dtsFornecedores
+        TabOrder = 2
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        OnColEnter = grbFornecedoresColEnter
+        OnDblClick = grbFornecedoresDblClick
+      end
+    end
+  end
+  object panRodape: TPanel
+    Left = 0
+    Top = 340
+    Width = 545
+    Height = 41
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 1
+    ExplicitTop = 170
+    object btnOk: TButton
+      Left = 381
+      Top = 7
+      Width = 75
+      Height = 25
+      Caption = 'Ok'
+      ModalResult = 1
+      TabOrder = 0
+      OnClick = btnOkClick
+    end
+    object btnCancelar: TButton
+      Left = 462
+      Top = 7
+      Width = 75
+      Height = 25
+      Caption = 'Cancelar'
+      ModalResult = 2
+      TabOrder = 1
+      OnClick = btnCancelarClick
+    end
+  end
+  object dtsFornecedores: TDataSource
+    DataSet = idsFornec
+    Left = 32
+    Top = 328
+  end
+  object idsFornec: TIBDataSet
+    Database = dbFornec
+    Transaction = IBTransaction1
+    DeleteSQL.Strings = (
+      'delete from FORNECEDORES'
+      'where'
+      '  IDFORNEC = :OLD_IDFORNEC')
+    InsertSQL.Strings = (
+      'insert into FORNECEDORES'
+      '  (BAIRRO, CIDADE, LOGRADOURO, NOME, NUMERO, TELEFONE, UF)'
+      'values'
+      
+        '  (:BAIRRO, :CIDADE, :LOGRADOURO, :NOME, :NUMERO, :TELEFONE, :UF' +
+        ')')
+    RefreshSQL.Strings = (
+      'Select '
+      '  IDFORNEC,'
+      '  NOME,'
+      '  LOGRADOURO,'
+      '  NUMERO,'
+      '  BAIRRO,'
+      '  CIDADE,'
+      '  UF,'
+      '  TELEFONE'
+      'from FORNECEDORES '
+      'where'
+      '  IDFORNEC = :IDFORNEC')
+    SelectSQL.Strings = (
+      'select * from FORNECEDORES')
+    ModifySQL.Strings = (
+      'update FORNECEDORES'
+      'set'
+      '  BAIRRO = :BAIRRO,'
+      '  CIDADE = :CIDADE,'
+      '  LOGRADOURO = :LOGRADOURO,'
+      '  NOME = :NOME,'
+      '  NUMERO = :NUMERO,'
+      '  TELEFONE = :TELEFONE,'
+      '  UF = :UF'
+      'where'
+      '  IDFORNEC = :OLD_IDFORNEC')
+    Active = True
+    Left = 104
+    Top = 328
+    object idsFornecIDFORNEC: TIntegerField
+      DisplayLabel = 'C'#243'd.'
+      FieldName = 'IDFORNEC'
+      Origin = '"FORNECEDORES"."IDFORNEC"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object idsFornecNOME: TIBStringField
+      DisplayLabel = 'Nome'
+      FieldName = 'NOME'
+      Origin = '"FORNECEDORES"."NOME"'
+      Size = 200
+    end
+    object idsFornecLOGRADOURO: TIBStringField
+      DisplayLabel = 'Logradouro'
+      FieldName = 'LOGRADOURO'
+      Origin = '"FORNECEDORES"."LOGRADOURO"'
+      Size = 150
+    end
+    object idsFornecNUMERO: TIntegerField
+      DisplayLabel = 'N'#250'mero'
+      FieldName = 'NUMERO'
+      Origin = '"FORNECEDORES"."NUMERO"'
+    end
+    object idsFornecBAIRRO: TIBStringField
+      DisplayLabel = 'Bairro'
+      FieldName = 'BAIRRO'
+      Origin = '"FORNECEDORES"."BAIRRO"'
+      Size = 100
+    end
+    object idsFornecCIDADE: TIBStringField
+      DisplayLabel = 'Cidade'
+      FieldName = 'CIDADE'
+      Origin = '"FORNECEDORES"."CIDADE"'
+      Size = 100
+    end
+    object idsFornecUF: TIBStringField
+      FieldName = 'UF'
+      Origin = '"FORNECEDORES"."UF"'
+      Size = 2
+    end
+    object idsFornecTELEFONE: TIBStringField
+      DisplayLabel = 'Telefone'
+      FieldName = 'TELEFONE'
+      Origin = '"FORNECEDORES"."TELEFONE"'
+      EditMask = '!\(99\)00000-0000;1;_'
+      Size = 15
+    end
+  end
+  object IBTransaction1: TIBTransaction
+    Active = True
+    DefaultDatabase = dbFornec
+    Left = 216
+    Top = 328
+  end
+  object dbFornec: TIBDatabase
+    Connected = True
+    DatabaseName = 'C:\Users\rodri\Desktop\Delphi\GerVendas\BD\GERVENDAS.FDB'
+    Params.Strings = (
+      'user_name=SYSDBA'
+      'password=masterkey')
+    LoginPrompt = False
+    Left = 160
+    Top = 328
+  end
+  object SQLConexaoProd: TSQLConnection
+    ConnectionName = 'FBConnection'
+    DriverName = 'Firebird'
+    GetDriverFunc = 'getSQLDriverINTERBASE'
+    LibraryName = 'gds32.dll'
+    LoginPrompt = False
+    Params.Strings = (
+      'DriverName=Firebird'
+      
+        'Database=C:\Users\rodri\Desktop\Delphi\GerVendas\BD\GERVENDAS.FD' +
+        'B'
+      'RoleName=RoleName'
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'ServerCharSet='
+      'SQLDialect=3'
+      'ErrorResourceFile='
+      'LocaleCode=0000'
+      'BlobSize=-1'
+      'CommitRetain=False'
+      'WaitOnLocks=True'
+      'IsolationLevel=ReadCommitted'
+      'Trim Char=False')
+    VendorLib = 'fbclient.dll'
+    Connected = True
+    Left = 600
+    Top = 8
+  end
+end

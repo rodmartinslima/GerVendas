@@ -1,0 +1,27 @@
+unit uFuncoes;
+
+interface
+
+implementation
+
+uses
+  SysUtils;
+
+function DiaDaSemana(Data:TDateTime): String;
+var
+  NoDia : Integer;
+  DiaSemana : array [1..7] of String[13];
+begin
+  DiaSemana [1] := 'Domingo';
+  DiaSemana [2] := 'Segunda-feira';
+  DiaSemana [3] := 'Terça-feira';
+  DiaSemana [4] := 'Quarta-feira';
+  DiaSemana [5] := 'Quinta-feira';
+  DiaSemana [6] := 'Sexta-feira';
+  DiaSemana [7] := 'Sábado';
+
+  NoDia:=DayOfWeek(Data);
+  Result := Diasemana[NoDia];
+end;
+
+end.

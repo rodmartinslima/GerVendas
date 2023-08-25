@@ -1,0 +1,38 @@
+unit frmBase;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, Grids, DBGrids, DBCtrls, ActnList;
+
+type
+  TForm1 = class(TForm)
+    btnSair: TButton;
+    panMenu: TPanel;
+    panPesquisa: TPanel;
+    labTpPesquisa: TLabel;
+    cbxPesquisar: TComboBox;
+    edtPesquisar: TEdit;
+    dbgPrincipal: TDBGrid;
+    panBackground: TPanel;
+    panRodape: TPanel;
+    labMsgPadrão: TLabel;
+    DBNavi: TDBNavigator;
+    btnPesquisar: TButton;
+    actGeral: TActionList;
+    actPesquisar: TAction;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,135 @@
+object frmVendas: TfrmVendas
+  Left = 0
+  Top = 0
+  Caption = 'frmVenda'
+  ClientHeight = 545
+  ClientWidth = 870
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesigned
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object panDetalhesVendas: TPanel
+    Left = 519
+    Top = 0
+    Width = 354
+    Height = 537
+    Caption = 'panDetalhesVendas'
+    TabOrder = 0
+    object MemoVendas: TMemo
+      Left = 0
+      Top = 0
+      Width = 350
+      Height = 705
+      Lines.Strings = (
+        '')
+      TabOrder = 0
+    end
+  end
+  object panProdutos: TPanel
+    Left = 0
+    Top = 112
+    Width = 513
+    Height = 393
+    Caption = 'panProdutos'
+    TabOrder = 1
+    object labNomeProd: TLabel
+      Left = 8
+      Top = 31
+      Width = 83
+      Height = 13
+      Caption = 'Nome do Produto'
+    end
+    object labQtd: TLabel
+      Left = 383
+      Top = 31
+      Width = 28
+      Height = 13
+      Caption = 'Qtde.'
+    end
+    object labPrcVenda: TLabel
+      Left = 431
+      Top = 31
+      Width = 60
+      Height = 13
+      Caption = 'Pre'#231'o Venda'
+    end
+    object btnInserir: TSpeedButton
+      Left = 431
+      Top = 8
+      Width = 65
+      Height = 25
+      Caption = 'Inserir'
+      OnClick = btnInserirClick
+    end
+    object grdProdutos: TDBGrid
+      Left = 8
+      Top = 80
+      Width = 497
+      Height = 305
+      DataSource = DataModule1.dtsProdutos
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'IDPROD'
+          ReadOnly = True
+          Width = 45
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'DESCRICAO'
+          ReadOnly = True
+          Width = 320
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'PRCVENDA'
+          ReadOnly = True
+          Title.Caption = 'Pre'#231'o de Venda (R$)'
+          Width = 105
+          Visible = True
+        end>
+    end
+    object dbEdit: TDBEdit
+      Left = 8
+      Top = 49
+      Width = 369
+      Height = 21
+      Color = clGradientInactiveCaption
+      DataField = 'DESCRICAO'
+      DataSource = DataModule1.dtsProdutos
+      ReadOnly = True
+      TabOrder = 1
+    end
+    object edtQtde: TEdit
+      Left = 383
+      Top = 49
+      Width = 42
+      Height = 21
+      NumbersOnly = True
+      TabOrder = 2
+      Text = '1,00'
+    end
+    object dbPrcVenda: TDBEdit
+      Left = 431
+      Top = 50
+      Width = 74
+      Height = 21
+      TabOrder = 3
+    end
+  end
+end

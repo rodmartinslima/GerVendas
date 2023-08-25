@@ -1,0 +1,405 @@
+object frmDataModule: TfrmDataModule
+  Left = 0
+  Top = 0
+  Caption = 'DataModule'
+  ClientHeight = 197
+  ClientWidth = 459
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object dbprincipal: TIBDatabase
+    Connected = True
+    DatabaseName = 'C:\Users\rodri\Desktop\Delphi\GerVendas\BD\GERVENDAS.FDB'
+    Params.Strings = (
+      'user_name=SYSDBA'
+      'password=masterkey')
+    LoginPrompt = False
+    DefaultTransaction = IBTransaction1
+    Left = 400
+    Top = 16
+  end
+  object IBTransaction1: TIBTransaction
+    Active = True
+    DefaultDatabase = dbprincipal
+    Left = 400
+    Top = 80
+  end
+  object dtsClientes: TDataSource
+    DataSet = idsClientes
+    Left = 24
+    Top = 16
+  end
+  object idsClientes: TIBDataSet
+    Database = dbprincipal
+    Transaction = IBTransaction1
+    AfterInsert = idsClientesAfterInsert
+    OnNewRecord = idsClientesNewRecord
+    DeleteSQL.Strings = (
+      'delete from clientes'
+      'where'
+      '  IDCLI = :OLD_IDCLI')
+    InsertSQL.Strings = (
+      'insert into clientes'
+      '  (BAIRRO, CIDADE, LIMITECREDITO, LOGRADOURO, NOME, NUMERO, UF)'
+      'values'
+      
+        '  (:BAIRRO, :CIDADE, :LIMITECREDITO, :LOGRADOURO, :NOME, :NUMERO' +
+        ', :UF)')
+    RefreshSQL.Strings = (
+      'Select '
+      '  IDCLI,'
+      '  NOME,'
+      '  LOGRADOURO,'
+      '  NUMERO,'
+      '  BAIRRO,'
+      '  CIDADE,'
+      '  UF,'
+      '  LIMITECREDITO'
+      'from clientes '
+      'where'
+      '  IDCLI = :IDCLI')
+    SelectSQL.Strings = (
+      'select * from clientes')
+    ModifySQL.Strings = (
+      'update clientes'
+      'set'
+      '  BAIRRO = :BAIRRO,'
+      '  CIDADE = :CIDADE,'
+      '  LIMITECREDITO = :LIMITECREDITO,'
+      '  LOGRADOURO = :LOGRADOURO,'
+      '  NOME = :NOME,'
+      '  NUMERO = :NUMERO,'
+      '  UF = :UF'
+      'where'
+      '  IDCLI = :OLD_IDCLI')
+    Left = 96
+    Top = 16
+    object idsClientesIDCLI: TIntegerField
+      DisplayLabel = 'C'#243'digo;Cliente'
+      FieldName = 'IDCLI'
+      Origin = '"CLIENTES"."IDCLI"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object idsClientesNOME: TIBStringField
+      DisplayLabel = 'Nome'
+      FieldName = 'NOME'
+      Origin = '"CLIENTES"."NOME"'
+      Size = 200
+    end
+    object idsClientesLOGRADOURO: TIBStringField
+      DisplayLabel = 'Logradouro'
+      FieldName = 'LOGRADOURO'
+      Origin = '"CLIENTES"."LOGRADOURO"'
+      Size = 150
+    end
+    object idsClientesNUMERO: TIntegerField
+      DisplayLabel = 'N'#250'mero'
+      FieldName = 'NUMERO'
+      Origin = '"CLIENTES"."NUMERO"'
+    end
+    object idsClientesBAIRRO: TIBStringField
+      DisplayLabel = 'Bairro'
+      FieldName = 'BAIRRO'
+      Origin = '"CLIENTES"."BAIRRO"'
+      Size = 100
+    end
+    object idsClientesCIDADE: TIBStringField
+      DisplayLabel = 'Cidade'
+      FieldName = 'CIDADE'
+      Origin = '"CLIENTES"."CIDADE"'
+      Size = 100
+    end
+    object idsClientesUF: TIBStringField
+      FieldName = 'UF'
+      Origin = '"CLIENTES"."UF"'
+      Size = 2
+    end
+    object idsClientesLIMITECREDITO: TFloatField
+      DisplayLabel = 'Limite;Cr'#233'dito'
+      FieldName = 'LIMITECREDITO'
+      Origin = '"CLIENTES"."LIMITECREDITO"'
+    end
+    object idsClientesDATA_NASCIMENTO: TDateField
+      DisplayLabel = 'Data;Nascimento'
+      FieldName = 'DATA_NASCIMENTO'
+      Origin = '"CLIENTES"."DATA_NASCIMENTO"'
+    end
+  end
+  object dtsProdutos: TDataSource
+    DataSet = idsProdutos
+    Left = 24
+    Top = 72
+  end
+  object idsProdutos: TIBDataSet
+    Database = dbprincipal
+    Transaction = IBTransaction1
+    DeleteSQL.Strings = (
+      'delete from produtos'
+      'where'
+      '  IDPROD = :OLD_IDPROD')
+    InsertSQL.Strings = (
+      'insert into produtos'
+      '  (DESCRICAO, ESTOQUEDISP, MARGEMLUCRO, PRCUSTO, PRUNITARIO)'
+      'values'
+      
+        '  (:DESCRICAO, :ESTOQUEDISP, :MARGEMLUCRO, :PRCUSTO, :PRUNITARIO' +
+        ')')
+    RefreshSQL.Strings = (
+      'Select '
+      '  IDPROD,'
+      '  DESCRICAO,'
+      '  PRCUSTO,'
+      '  MARGEMLUCRO,'
+      '  PRUNITARIO,'
+      '  ESTOQUEDISP'
+      'from produtos '
+      'where'
+      '  IDPROD = :IDPROD')
+    SelectSQL.Strings = (
+      'select * from produtos')
+    ModifySQL.Strings = (
+      'update produtos'
+      'set'
+      '  DESCRICAO = :DESCRICAO,'
+      '  ESTOQUEDISP = :ESTOQUEDISP,'
+      '  MARGEMLUCRO = :MARGEMLUCRO,'
+      '  PRCUSTO = :PRCUSTO,'
+      '  PRUNITARIO = :PRUNITARIO'
+      'where'
+      '  IDPROD = :OLD_IDPROD')
+    Left = 96
+    Top = 72
+    object idsProdutosIDPROD: TIntegerField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'IDPROD'
+      Origin = '"PRODUTOS"."IDPROD"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object idsProdutosDESCRICAO: TIBStringField
+      DisplayLabel = 'Descri'#231#227'o'
+      FieldName = 'DESCRICAO'
+      Origin = '"PRODUTOS"."DESCRICAO"'
+      Size = 200
+    end
+    object idsProdutosPRCUSTO: TFloatField
+      DisplayLabel = 'Pre'#231'o de Custo'
+      FieldName = 'PRCUSTO'
+      Origin = '"PRODUTOS"."PRCUSTO"'
+    end
+    object idsProdutosMARGEMLUCRO: TFloatField
+      DisplayLabel = 'Margem Lucro(%)'
+      FieldName = 'MARGEMLUCRO'
+      Origin = '"PRODUTOS"."MARGEMLUCRO"'
+    end
+    object idsProdutosPRUNITARIO: TFloatField
+      DisplayLabel = 'Pre'#231'o Unit'#225'rio'
+      FieldName = 'PRUNITARIO'
+      Origin = '"PRODUTOS"."PRUNITARIO"'
+    end
+    object idsProdutosESTOQUEDISP: TFloatField
+      DisplayLabel = 'Estoque'
+      FieldName = 'ESTOQUEDISP'
+      Origin = '"PRODUTOS"."ESTOQUEDISP"'
+    end
+  end
+  object dtsVendas: TDataSource
+    Left = 24
+    Top = 136
+  end
+  object idsVendas: TIBDataSet
+    Database = dbprincipal
+    Transaction = IBTransaction1
+    DeleteSQL.Strings = (
+      'delete from vendas'
+      'where'
+      '  IDVENDA = :OLD_IDVENDA')
+    InsertSQL.Strings = (
+      'insert into vendas'
+      '  (AJUSTE, DATA_HORA, IDCLIENTE, VALORBRUTO, VALORLIQUIDO)'
+      'values'
+      '  (:AJUSTE, :DATA_HORA, :IDCLIENTE, :VALORBRUTO, :VALORLIQUIDO)')
+    RefreshSQL.Strings = (
+      'Select '
+      '  IDVENDA,'
+      '  IDCLIENTE,'
+      '  DATA_HORA,'
+      '  VALORBRUTO,'
+      '  AJUSTE,'
+      '  VALORLIQUIDO'
+      'from vendas '
+      'where'
+      '  IDVENDA = :IDVENDA')
+    SelectSQL.Strings = (
+      'select * from vendas')
+    ModifySQL.Strings = (
+      'update vendas'
+      'set'
+      '  AJUSTE = :AJUSTE,'
+      '  DATA_HORA = :DATA_HORA,'
+      '  IDCLIENTE = :IDCLIENTE,'
+      '  VALORBRUTO = :VALORBRUTO,'
+      '  VALORLIQUIDO = :VALORLIQUIDO'
+      'where'
+      '  IDVENDA = :OLD_IDVENDA')
+    Left = 96
+    Top = 136
+    object idsVendasIDVENDA: TIntegerField
+      DisplayLabel = 'ID Venda'
+      FieldName = 'IDVENDA'
+      Origin = '"VENDAS"."IDVENDA"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object idsVendasIDCLIENTE: TIntegerField
+      DisplayLabel = 'C'#243'digo;Cliente'
+      FieldName = 'IDCLIENTE'
+      Origin = '"VENDAS"."IDCLIENTE"'
+    end
+    object idsVendasDATA_HORA: TDateTimeField
+      DisplayLabel = 'Data/Hora'
+      FieldName = 'DATA_HORA'
+      Origin = '"VENDAS"."DATA_HORA"'
+      Required = True
+    end
+    object idsVendasVALORBRUTO: TFloatField
+      DisplayLabel = 'Valor;Bruto'
+      FieldName = 'VALORBRUTO'
+      Origin = '"VENDAS"."VALORBRUTO"'
+    end
+    object idsVendasAJUSTE: TFloatField
+      DisplayLabel = 'Ajuste(R$)'
+      FieldName = 'AJUSTE'
+      Origin = '"VENDAS"."AJUSTE"'
+    end
+    object idsVendasVALORLIQUIDO: TFloatField
+      DisplayLabel = 'Valor;L'#237'quido'
+      FieldName = 'VALORLIQUIDO'
+      Origin = '"VENDAS"."VALORLIQUIDO"'
+    end
+  end
+  object dtsItensVendas: TDataSource
+    DataSet = idsItensVendas
+    Left = 176
+    Top = 16
+  end
+  object idsItensVendas: TIBDataSet
+    Database = dbprincipal
+    Transaction = IBTransaction1
+    DeleteSQL.Strings = (
+      'delete from ITENS_VENDAS'
+      'where'
+      '  ID = :OLD_ID')
+    InsertSQL.Strings = (
+      'insert into ITENS_VENDAS'
+      
+        '  (AJUSTE, ID_PRODUTO, ID_VENDA, PRC_TOTAL, PRC_UNITARIO, QUANTI' +
+        'DADE)'
+      'values'
+      
+        '  (:AJUSTE, :ID_PRODUTO, :ID_VENDA, :PRC_TOTAL, :PRC_UNITARIO, :' +
+        'QUANTIDADE)')
+    RefreshSQL.Strings = (
+      'Select '
+      '  ID,'
+      '  ID_VENDA,'
+      '  ID_PRODUTO,'
+      '  PRC_UNITARIO,'
+      '  QUANTIDADE,'
+      '  AJUSTE,'
+      '  PRC_TOTAL'
+      'from ITENS_VENDAS '
+      'where'
+      '  ID = :ID')
+    SelectSQL.Strings = (
+      'select * from ITENS_VENDAS')
+    ModifySQL.Strings = (
+      'update ITENS_VENDAS'
+      'set'
+      '  AJUSTE = :AJUSTE,'
+      '  ID_PRODUTO = :ID_PRODUTO,'
+      '  ID_VENDA = :ID_VENDA,'
+      '  PRC_TOTAL = :PRC_TOTAL,'
+      '  PRC_UNITARIO = :PRC_UNITARIO,'
+      '  QUANTIDADE = :QUANTIDADE'
+      'where'
+      '  ID = :OLD_ID')
+    Left = 248
+    Top = 16
+    object idsItensVendasID: TIntegerField
+      FieldName = 'ID'
+      Origin = '"ITENS_VENDAS"."ID"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object idsItensVendasID_VENDA: TIntegerField
+      FieldName = 'ID_VENDA'
+      Origin = '"ITENS_VENDAS"."ID_VENDA"'
+      Required = True
+    end
+    object idsItensVendasID_PRODUTO: TIntegerField
+      DisplayLabel = 'C'#243'digo;Produto'
+      FieldName = 'ID_PRODUTO'
+      Origin = '"ITENS_VENDAS"."ID_PRODUTO"'
+      Required = True
+    end
+    object idsItensVendasPRC_UNITARIO: TFloatField
+      DisplayLabel = 'Pre'#231'o;Unit'#225'rio'
+      FieldName = 'PRC_UNITARIO'
+      Origin = '"ITENS_VENDAS"."PRC_UNITARIO"'
+      Required = True
+    end
+    object idsItensVendasQUANTIDADE: TFloatField
+      DisplayLabel = 'Quantidade'
+      FieldName = 'QUANTIDADE'
+      Origin = '"ITENS_VENDAS"."QUANTIDADE"'
+      Required = True
+    end
+    object idsItensVendasAJUSTE: TFloatField
+      DisplayLabel = 'Ajuste(R$)'
+      FieldName = 'AJUSTE'
+      Origin = '"ITENS_VENDAS"."AJUSTE"'
+      Required = True
+    end
+    object idsItensVendasPRC_TOTAL: TFloatField
+      DisplayLabel = 'Pre'#231'o;Total'
+      FieldName = 'PRC_TOTAL'
+      Origin = '"ITENS_VENDAS"."PRC_TOTAL"'
+      Required = True
+    end
+  end
+  object SQLConnection1: TSQLConnection
+    ConnectionName = 'FBConnection'
+    DriverName = 'Firebird'
+    GetDriverFunc = 'getSQLDriverINTERBASE'
+    LibraryName = 'gds32.dll'
+    LoginPrompt = False
+    Params.Strings = (
+      'DriverName=Firebird'
+      
+        'Database=C:\Users\rodri\Desktop\Delphi\GerVendas\BD\GERVENDAS.FD' +
+        'B'
+      'RoleName=RoleName'
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'ServerCharSet='
+      'SQLDialect=3'
+      'ErrorResourceFile='
+      'LocaleCode=0000'
+      'BlobSize=-1'
+      'CommitRetain=False'
+      'WaitOnLocks=True'
+      'IsolationLevel=ReadCommitted'
+      'Trim Char=False')
+    VendorLib = 'fbclient.dll'
+    Left = 384
+    Top = 136
+  end
+end

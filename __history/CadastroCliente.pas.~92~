@@ -1,0 +1,59 @@
+unit CadastroCliente;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, NovoCadastroBase, StdCtrls, Mask, DBCtrls, ExtCtrls, ComCtrls;
+
+type
+  TfrmNovoCadastroCliente = class(TfrmNovoCadastroBase)
+    labNumero: TLabel;
+    edtNumero: TDBEdit;
+    labCidade: TLabel;
+    edtCidade: TDBEdit;
+    labUF: TLabel;
+    labDtNascimento: TLabel;
+    cbxUF: TDBComboBox;
+    edtDataNasc: TDateTimePicker;
+    gbrEndereco: TGroupBox;
+    grbDadosPessoais: TGroupBox;
+    procedure FormShow(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure btnOkClick(Sender: TObject);
+  private
+
+  public
+    { Public declarations }
+  end;
+
+var
+  frmNovoCadastroCliente: TfrmNovoCadastroCliente;
+
+implementation
+
+uses
+  DM_Principal;
+{$R *.dfm}
+
+procedure TfrmNovoCadastroCliente.btnCancelarClick(Sender: TObject);
+begin
+  inherited;
+  Self.Close();
+  DataModule1.idsClientes.Refresh;
+end;
+
+procedure TfrmNovoCadastroCliente.btnOkClick(Sender: TObject);
+begin
+  inherited;
+  DataModule1.idsClientes.Post;
+  DataModule1.idsClientes.Refresh;
+end;
+
+procedure TfrmNovoCadastroCliente.FormShow(Sender: TObject);
+begin
+  inherited;
+  edtDescricao.SetFocus;
+end;
+
+end.

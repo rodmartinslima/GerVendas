@@ -1,0 +1,290 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 216
+  Width = 506
+  object dbprincipal: TIBDatabase
+    Connected = True
+    DatabaseName = 'C:\Users\rodri\Desktop\Delphi\GerVendas\BD\GERVENDAS.FDB'
+    Params.Strings = (
+      'user_name=SYSDBA'
+      'password=masterkey')
+    LoginPrompt = False
+    DefaultTransaction = IBTransaction1
+    Left = 400
+    Top = 16
+  end
+  object IBTransaction1: TIBTransaction
+    Active = True
+    DefaultDatabase = dbprincipal
+    Left = 400
+    Top = 80
+  end
+  object dtsProdutos: TDataSource
+    DataSet = idsProdutos
+    Left = 24
+    Top = 72
+  end
+  object idsProdutos: TIBDataSet
+    Database = dbprincipal
+    Transaction = IBTransaction1
+    DeleteSQL.Strings = (
+      'delete from produtos'
+      'where'
+      '  IDPROD = :OLD_IDPROD')
+    InsertSQL.Strings = (
+      'insert into produtos'
+      '  (DESCRICAO, MARGEM, PRCREPASSE, PRCVENDA)'
+      'values'
+      '  (:DESCRICAO, :MARGEM, :PRCREPASSE, :PRCVENDA)')
+    RefreshSQL.Strings = (
+      'Select '
+      '  IDPROD,'
+      '  DESCRICAO,'
+      '  PRCVENDA,'
+      '  MARGEM,'
+      '  PRCREPASSE'
+      'from produtos '
+      'where'
+      '  IDPROD = :IDPROD')
+    SelectSQL.Strings = (
+      'select * from produtos'
+      'order by IDPROD')
+    ModifySQL.Strings = (
+      'update produtos'
+      'set'
+      '  DESCRICAO = :DESCRICAO,'
+      '  MARGEM = :MARGEM,'
+      '  PRCREPASSE = :PRCREPASSE,'
+      '  PRCVENDA = :PRCVENDA'
+      'where'
+      '  IDPROD = :OLD_IDPROD')
+    Left = 96
+    Top = 72
+    object idsProdutosIDPROD: TIntegerField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'IDPROD'
+      Origin = '"PRODUTOS"."IDPROD"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object idsProdutosDESCRICAO: TIBStringField
+      DisplayLabel = 'Descri'#231#227'o'
+      FieldName = 'DESCRICAO'
+      Origin = '"PRODUTOS"."DESCRICAO"'
+      Size = 200
+    end
+    object idsProdutosPRCVENDA: TFloatField
+      DisplayLabel = 'Pre'#231'o de Venda'
+      FieldName = 'PRCVENDA'
+      Origin = '"PRODUTOS"."PRCVENDA"'
+      currency = True
+    end
+    object idsProdutosMARGEM: TFloatField
+      DisplayLabel = 'Margem (%)'
+      FieldName = 'MARGEM'
+      Origin = '"PRODUTOS"."MARGEM"'
+      DisplayFormat = '#.##'
+    end
+    object idsProdutosPRCREPASSE: TFloatField
+      DisplayLabel = 'Pre'#231'o de Repasse (R$)'
+      FieldName = 'PRCREPASSE'
+      Origin = '"PRODUTOS"."PRCREPASSE"'
+    end
+  end
+  object dtsVendas: TDataSource
+    Left = 24
+    Top = 136
+  end
+  object idsVendas: TIBDataSet
+    Database = dbprincipal
+    Transaction = IBTransaction1
+    DeleteSQL.Strings = (
+      'delete from vendas'
+      'where'
+      '  IDVENDA = :OLD_IDVENDA')
+    InsertSQL.Strings = (
+      'insert into vendas'
+      '  (AJUSTE, DATA_HORA, IDCLIENTE, VALORBRUTO, VALORLIQUIDO)'
+      'values'
+      '  (:AJUSTE, :DATA_HORA, :IDCLIENTE, :VALORBRUTO, :VALORLIQUIDO)')
+    RefreshSQL.Strings = (
+      'Select '
+      '  IDVENDA,'
+      '  IDCLIENTE,'
+      '  DATA_HORA,'
+      '  VALORBRUTO,'
+      '  AJUSTE,'
+      '  VALORLIQUIDO'
+      'from vendas '
+      'where'
+      '  IDVENDA = :IDVENDA')
+    SelectSQL.Strings = (
+      'select * from vendas')
+    ModifySQL.Strings = (
+      'update vendas'
+      'set'
+      '  AJUSTE = :AJUSTE,'
+      '  DATA_HORA = :DATA_HORA,'
+      '  IDCLIENTE = :IDCLIENTE,'
+      '  VALORBRUTO = :VALORBRUTO,'
+      '  VALORLIQUIDO = :VALORLIQUIDO'
+      'where'
+      '  IDVENDA = :OLD_IDVENDA')
+    GeneratorField.Field = 'IDVENDA'
+    GeneratorField.Generator = 'GEN_VENDAS_ID'
+    Left = 96
+    Top = 136
+    object idsVendasIDVENDA: TIntegerField
+      DisplayLabel = 'ID Venda'
+      FieldName = 'IDVENDA'
+      Origin = '"VENDAS"."IDVENDA"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object idsVendasIDCLIENTE: TIntegerField
+      DisplayLabel = 'C'#243'digo;Cliente'
+      FieldName = 'IDCLIENTE'
+      Origin = '"VENDAS"."IDCLIENTE"'
+    end
+    object idsVendasDATA_HORA: TDateTimeField
+      DisplayLabel = 'Data/Hora'
+      FieldName = 'DATA_HORA'
+      Origin = '"VENDAS"."DATA_HORA"'
+      Required = True
+    end
+    object idsVendasVALORBRUTO: TFloatField
+      DisplayLabel = 'Valor;Bruto'
+      FieldName = 'VALORBRUTO'
+      Origin = '"VENDAS"."VALORBRUTO"'
+    end
+    object idsVendasAJUSTE: TFloatField
+      DisplayLabel = 'Ajuste(R$)'
+      FieldName = 'AJUSTE'
+      Origin = '"VENDAS"."AJUSTE"'
+    end
+    object idsVendasVALORLIQUIDO: TFloatField
+      DisplayLabel = 'Valor;L'#237'quido'
+      FieldName = 'VALORLIQUIDO'
+      Origin = '"VENDAS"."VALORLIQUIDO"'
+    end
+  end
+  object dtsItensVendas: TDataSource
+    DataSet = idsItensVendas
+    Left = 24
+    Top = 16
+  end
+  object idsItensVendas: TIBDataSet
+    Database = dbprincipal
+    Transaction = IBTransaction1
+    DeleteSQL.Strings = (
+      'delete from ITENS_VENDAS'
+      'where'
+      '  ID = :OLD_ID')
+    InsertSQL.Strings = (
+      'insert into ITENS_VENDAS'
+      
+        '  (AJUSTE, ID_PRODUTO, ID_VENDA, PRC_TOTAL, PRC_UNITARIO, QUANTI' +
+        'DADE)'
+      'values'
+      
+        '  (:AJUSTE, :ID_PRODUTO, :ID_VENDA, :PRC_TOTAL, :PRC_UNITARIO, :' +
+        'QUANTIDADE)')
+    RefreshSQL.Strings = (
+      'Select '
+      '  ID,'
+      '  ID_VENDA,'
+      '  ID_PRODUTO,'
+      '  PRC_UNITARIO,'
+      '  QUANTIDADE,'
+      '  AJUSTE,'
+      '  PRC_TOTAL'
+      'from ITENS_VENDAS '
+      'where'
+      '  ID = :ID')
+    SelectSQL.Strings = (
+      'select * from ITENS_VENDAS')
+    ModifySQL.Strings = (
+      'update ITENS_VENDAS'
+      'set'
+      '  AJUSTE = :AJUSTE,'
+      '  ID_PRODUTO = :ID_PRODUTO,'
+      '  ID_VENDA = :ID_VENDA,'
+      '  PRC_TOTAL = :PRC_TOTAL,'
+      '  PRC_UNITARIO = :PRC_UNITARIO,'
+      '  QUANTIDADE = :QUANTIDADE'
+      'where'
+      '  ID = :OLD_ID')
+    GeneratorField.Field = 'ID'
+    GeneratorField.Generator = 'GEN_ITENS_VENDAS_ID'
+    Left = 96
+    Top = 16
+    object idsItensVendasID: TIntegerField
+      FieldName = 'ID'
+      Origin = '"ITENS_VENDAS"."ID"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object idsItensVendasID_VENDA: TIntegerField
+      FieldName = 'ID_VENDA'
+      Origin = '"ITENS_VENDAS"."ID_VENDA"'
+      Required = True
+    end
+    object idsItensVendasID_PRODUTO: TIntegerField
+      DisplayLabel = 'C'#243'digo;Produto'
+      FieldName = 'ID_PRODUTO'
+      Origin = '"ITENS_VENDAS"."ID_PRODUTO"'
+      Required = True
+    end
+    object idsItensVendasPRC_UNITARIO: TFloatField
+      DisplayLabel = 'Pre'#231'o;Unit'#225'rio'
+      FieldName = 'PRC_UNITARIO'
+      Origin = '"ITENS_VENDAS"."PRC_UNITARIO"'
+      Required = True
+    end
+    object idsItensVendasQUANTIDADE: TFloatField
+      DisplayLabel = 'Quantidade'
+      FieldName = 'QUANTIDADE'
+      Origin = '"ITENS_VENDAS"."QUANTIDADE"'
+      Required = True
+    end
+    object idsItensVendasAJUSTE: TFloatField
+      DisplayLabel = 'Ajuste(R$)'
+      FieldName = 'AJUSTE'
+      Origin = '"ITENS_VENDAS"."AJUSTE"'
+      Required = True
+    end
+    object idsItensVendasPRC_TOTAL: TFloatField
+      DisplayLabel = 'Pre'#231'o;Total'
+      FieldName = 'PRC_TOTAL'
+      Origin = '"ITENS_VENDAS"."PRC_TOTAL"'
+      Required = True
+    end
+  end
+  object SQLConnection1: TSQLConnection
+    ConnectionName = 'FBConnection'
+    DriverName = 'Firebird'
+    GetDriverFunc = 'getSQLDriverINTERBASE'
+    LibraryName = 'gds32.dll'
+    LoginPrompt = False
+    Params.Strings = (
+      'DriverName=Firebird'
+      
+        'Database=C:\Users\rodri\Desktop\Delphi\GerVendas\BD\GERVENDAS.FD' +
+        'B'
+      'RoleName=RoleName'
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'ServerCharSet='
+      'SQLDialect=3'
+      'ErrorResourceFile='
+      'LocaleCode=0000'
+      'BlobSize=-1'
+      'CommitRetain=False'
+      'WaitOnLocks=True'
+      'IsolationLevel=ReadCommitted'
+      'Trim Char=False')
+    VendorLib = 'fbclient.dll'
+    Connected = True
+    Left = 384
+    Top = 136
+  end
+end

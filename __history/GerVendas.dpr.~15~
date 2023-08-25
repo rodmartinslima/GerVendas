@@ -1,0 +1,31 @@
+program GerVendas;
+
+uses
+  Forms,
+  frmBase in 'frmBase.pas' {Form1},
+  Clientes in 'Clientes.pas' {frmClientes},
+  Produtos in 'Produtos.pas' {frmProdutos},
+  Principal in 'Principal.pas' {frmPrincipal},
+  NovoCadastroBase in 'NovoCadastroBase.pas' {frmNovoCadastroBase},
+  DM_Principal in 'DM_Principal.pas' {DataModule1: TDataModule},
+  CadastroProdutos in 'CadastroProdutos.pas' {frmCadastroProdutos},
+  Vendas in 'Vendas.pas' {frmVendas},
+  frmCaixaPDV in 'frmCaixaPDV.pas' {frmCaixa},
+  Fornecedores in 'Fornecedores.pas' {frmFornecedores},
+  DM_PDV in 'DM_PDV.pas' {DataModulePDV: TDataModule},
+  UtilsUnit in 'UtilsUnit.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TDataModule1, DataModule1);
+  Application.CreateForm(TfrmCadastroProdutos, frmCadastroProdutos);
+  Application.CreateForm(TfrmVendas, frmVendas);
+  Application.CreateForm(TfrmCaixa, frmCaixa);
+  Application.CreateForm(TfrmFornecedores, frmFornecedores);
+  Application.CreateForm(TDataModulePDV, DataModulePDV);
+  Application.Run;
+end.

@@ -1,0 +1,33 @@
+unit DM_PDV;
+
+interface
+
+uses
+  SysUtils, Classes, DB, IBDatabase, WideStrings, DBXFirebird, SqlExpr;
+
+type
+  TDataModulePDV = class(TDataModule)
+    DataBase: TIBDatabase;
+    IBTransactionPDV: TIBTransaction;
+    SQLConexaoPDV: TSQLConnection;
+  private
+    { Private declarations }
+  public
+    function ConsultaProdutoPorId(aValue:Integer): Integer;
+  end;
+
+var
+  DataModulePDV: TDataModulePDV;
+
+implementation
+
+{$R *.dfm}
+
+{ TDataModule2 }
+
+function TDataModulePDV.ConsultaProdutoPorId(aValue: Integer): Integer;
+begin
+//
+end;
+
+end.

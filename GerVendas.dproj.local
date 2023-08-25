@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/04/23 19:19:53.025.pas,C:\Users\rodri\Desktop\pj\Unit1.pas=C:\Users\rodri\Desktop\Delphi\GerVendas\DataModule.pas</Transaction>
+    <Transaction>2023/04/23 19:19:53.025.dfm,C:\Users\rodri\Desktop\pj\Unit1.dfm=C:\Users\rodri\Desktop\Delphi\GerVendas\DataModule.dfm</Transaction>
+    <Transaction>2023/04/23 19:34:15.805.dproj,C:\Users\rodri\Desktop\pj\Project1.dproj=C:\Users\rodri\Desktop\Delphi\GerVendas\GerVendas.dproj</Transaction>
+    <Transaction>2023/04/23 19:49:34.601.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit1.pas=C:\Users\rodri\Desktop\Delphi\GerVendas\frmBase.pas</Transaction>
+    <Transaction>2023/04/23 19:49:34.601.dfm,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit1.dfm=C:\Users\rodri\Desktop\Delphi\GerVendas\frmBase.dfm</Transaction>
+    <Transaction>2023/04/23 19:53:22.898.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit2.pas=C:\Users\rodri\Desktop\Delphi\GerVendas\Clientes.pas</Transaction>
+    <Transaction>2023/04/23 19:53:22.898.dfm,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit2.dfm=C:\Users\rodri\Desktop\Delphi\GerVendas\Clientes.dfm</Transaction>
+    <Transaction>2023/04/23 19:54:49.981.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit2.pas=C:\Users\rodri\Desktop\Delphi\GerVendas\Produtos.pas</Transaction>
+    <Transaction>2023/04/23 19:54:49.981.dfm,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit2.dfm=C:\Users\rodri\Desktop\Delphi\GerVendas\Produtos.dfm</Transaction>
+    <Transaction>2023/04/23 19:57:38.880.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit2.pas=C:\Users\rodri\Desktop\Delphi\GerVendas\Principal.pas</Transaction>
+    <Transaction>2023/04/23 19:57:38.880.dfm,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit2.dfm=C:\Users\rodri\Desktop\Delphi\GerVendas\Principal.dfm</Transaction>
+    <Transaction>2023/04/23 21:33:34.792.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit2.pas=C:\Users\rodri\Desktop\Delphi\GerVendas\NovoCadastroBase.pas</Transaction>
+    <Transaction>2023/04/23 21:33:34.792.dfm,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit2.dfm=C:\Users\rodri\Desktop\Delphi\GerVendas\NovoCadastroBase.dfm</Transaction>
+    <Transaction>2023/04/23 21:49:12.615.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit1.pas=C:\Users\rodri\Desktop\Delphi\GerVendas\CadastroCliente.pas</Transaction>
+    <Transaction>2023/04/23 21:49:12.615.dfm,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit1.dfm=C:\Users\rodri\Desktop\Delphi\GerVendas\CadastroCliente.dfm</Transaction>
+    <Transaction>2023/05/16 20:27:34.563.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit1.pas=C:\Users\rodri\Desktop\Delphi\GerVendas\DM_Principal.pas</Transaction>
+    <Transaction>2023/05/16 20:27:34.563.dfm,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit1.dfm=C:\Users\rodri\Desktop\Delphi\GerVendas\DM_Principal.dfm</Transaction>
+    <Transaction>2023/05/16 20:30:17.840.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\DataModule.pas=</Transaction>
+    <Transaction>2023/05/16 20:30:17.840.dfm,C:\Users\rodri\Desktop\Delphi\GerVendas\DataModule.dfm=</Transaction>
+    <Transaction>2023/05/21 21:19:04.065.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit2.pas=C:\Users\rodri\Desktop\Delphi\GerVendas\CadastroProdutos.pas</Transaction>
+    <Transaction>2023/05/21 21:19:04.069.dfm,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit2.dfm=C:\Users\rodri\Desktop\Delphi\GerVendas\CadastroProdutos.dfm</Transaction>
+    <Transaction>2023/05/23 21:34:00.555.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit2.pas=C:\Users\rodri\Desktop\Delphi\GerVendas\Vendas.pas</Transaction>
+    <Transaction>2023/05/23 21:34:00.555.dfm,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit2.dfm=C:\Users\rodri\Desktop\Delphi\GerVendas\Vendas.dfm</Transaction>
+    <Transaction>2023/06/17 14:45:29.315.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\CadastroCliente.pas=</Transaction>
+    <Transaction>2023/06/17 14:45:29.318.dfm,C:\Users\rodri\Desktop\Delphi\GerVendas\CadastroCliente.dfm=</Transaction>
+    <Transaction>2023/06/19 22:33:55.242.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit2.pas=C:\Users\rodri\Desktop\Delphi\GerVendas\frmCaixaPDV.pas</Transaction>
+    <Transaction>2023/06/19 22:33:55.242.dfm,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit2.dfm=C:\Users\rodri\Desktop\Delphi\GerVendas\frmCaixaPDV.dfm</Transaction>
+    <Transaction>2023/06/24 18:33:20.763.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit2.pas=C:\Users\rodri\Desktop\Delphi\GerVendas\Fornecedores.pas</Transaction>
+    <Transaction>2023/06/24 18:33:20.763.dfm,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit2.dfm=C:\Users\rodri\Desktop\Delphi\GerVendas\Fornecedores.dfm</Transaction>
+    <Transaction>2023/06/24 20:13:41.406.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit1.pas=C:\Users\rodri\Desktop\Delphi\GerVendas\Utils.pas</Transaction>
+    <Transaction>2023/06/24 20:33:52.809.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\Utils.pas=C:\Users\rodri\Desktop\Delphi\GerVendas\uUtils.pas</Transaction>
+    <Transaction>2023/06/24 20:36:47.006.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\uUtils.pas=</Transaction>
+    <Transaction>2023/06/24 20:37:21.031.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit1.pas=C:\Users\rodri\Desktop\Delphi\GerVendas\Funcoes.pas</Transaction>
+    <Transaction>2023/06/24 20:41:40.860.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\Funcoes.pas=C:\Users\rodri\Desktop\Delphi\GerVendas\TFuncoes.pas</Transaction>
+    <Transaction>2023/06/24 20:43:31.726.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\TFuncoes.pas=</Transaction>
+    <Transaction>2023/06/24 20:56:27.117.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit2.pas=C:\Users\rodri\Desktop\Delphi\GerVendas\DM_PDV.pas</Transaction>
+    <Transaction>2023/06/24 20:56:27.117.dfm,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit2.dfm=C:\Users\rodri\Desktop\Delphi\GerVendas\DM_PDV.dfm</Transaction>
+    <Transaction>2023/06/29 14:52:25.834.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit1.pas=C:\Users\rodri\Desktop\Delphi\GerVendas\UtilsUnit.pas</Transaction>
+    <Transaction>2023/07/04 20:30:06.241.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\Vendas.pas=</Transaction>
+    <Transaction>2023/07/04 20:30:06.241.dfm,C:\Users\rodri\Desktop\Delphi\GerVendas\Vendas.dfm=</Transaction>
+    <Transaction>2023/08/07 22:18:47.136.pas,C:\Users\rodri\Desktop\Delphi\GerVendas\Unit1.pas=C:\Users\rodri\Desktop\Delphi\GerVendas\Utils.pas</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="CadastroProdutos.pas"/>
+    <File Path="CadastroProdutos.dfm"/>
+    <File Path="Clientes.pas"/>
+    <File Path="Clientes.dfm"/>
+    <File Path="DM_Principal.pas"/>
+    <File Path="DM_Principal.dfm"/>
+    <File Path="frmBase.pas"/>
+    <File Path="frmBase.dfm"/>
+    <File Path="NovoCadastroBase.pas"/>
+    <File Path="NovoCadastroBase.dfm"/>
+    <File Path="Principal.pas"/>
+    <File Path="Principal.dfm"/>
+    <File Path="Produtos.pas"/>
+    <File Path="Produtos.dfm"/>
+    <File Path="frmCaixaPDV.pas"/>
+    <File Path="frmCaixaPDV.dfm"/>
+    <File Path="Fornecedores.pas"/>
+    <File Path="Fornecedores.dfm"/>
+    <File Path="DM_PDV.pas"/>
+    <File Path="DM_PDV.dfm"/>
+    <File Path="UtilsUnit.pas"/>
+    <File Path="Utils.pas"/>
+  </ProjectSortOrder>
+</BorlandProject>

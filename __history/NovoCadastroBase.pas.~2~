@@ -1,0 +1,35 @@
+unit NovoCadastroBase;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Mask, DBCtrls, ExtCtrls;
+
+type
+  TForm2 = class(TForm)
+    panPrincipal: TPanel;
+    labCodigo: TLabel;
+    edtCodigo: TDBEdit;
+    labDescricao: TLabel;
+    edtDescricao: TDBEdit;
+    btnOk: TButton;
+    btnCancelar: TButton;
+    DBEdit1: TDBEdit;
+    labCampo3: TLabel;
+    labCampo4: TLabel;
+    edtCampo4: TDBEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,110 @@
+unit Principal;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Clientes, Produtos, frmCaixaPdv, Fornecedores,
+  ImgList, ExtCtrls, DM_Principal;
+
+type
+  TfrmPrincipal = class(TForm)
+    btnAcessarClientes: TButton;
+    btnProdutos: TButton;
+    btnVendas: TButton;
+    btnRelatorios: TButton;
+    imgList: TImageList;
+    panMenu: TPanel;
+    Button1: TButton;
+    procedure btnAcessarClientesClick(Sender: TObject);
+    procedure btnProdutosClick(Sender: TObject);
+    procedure btnVendasClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Button1Click(Sender: TObject);
+  private
+    Clientes: TfrmClientes;
+    Produtos: TfrmProdutos;
+    Vendas: TfrmCaixa;
+    Fornecedores: TfrmFornecedores;
+    DM: TDataModule1;
+
+    procedure LiberarObjetos;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+uses
+ Utils;
+
+{$R *.dfm}
+
+procedure TfrmPrincipal.btnAcessarClientesClick(Sender: TObject);
+begin
+  Clientes.ShowModal();
+end;
+
+procedure TfrmPrincipal.btnProdutosClick(Sender: TObject);
+begin
+  Produtos.ShowModal();
+end;
+
+procedure TfrmPrincipal.btnVendasClick(Sender: TObject);
+begin
+  if not Assigned(Vendas) then
+    Vendas := TfrmCaixa.Create(Application);
+
+  Vendas.ShowModal();
+end;
+
+procedure TfrmPrincipal.Button1Click(Sender: TObject);
+begin
+  Fornecedores.ShowModal();
+end;
+
+procedure TfrmPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  LiberarObjetos();
+end;
+
+procedure TfrmPrincipal.FormCreate(Sender: TObject);
+begin
+  if not Assigned(DM) then
+    DM := TDataModule1.Create();
+
+  LerArquivoIniString();
+
+  if not Assigned(Clientes) then
+    Clientes := TfrmClientes.Create(Application);
+
+  if not Assigned(Produtos) then  
+    Produtos := TfrmProdutos.Create(Application);
+
+  if not Assigned(Fornecedores) then
+    Fornecedores := TfrmFornecedores.Create(Application);
+end;
+
+procedure TfrmPrincipal.LiberarObjetos;
+begin
+  if Assigned(Clientes) then  
+    FreeAndNil(Clientes);
+
+  if Assigned(Produtos) then  
+    FreeAndNil(Produtos);
+
+  if Assigned(Vendas) then  
+    FreeAndNil(Vendas);
+
+  if Assigned(Fornecedores) then
+    FreeAndNil(Fornecedores);
+
+  if Assigned(DM) then
+    FreeAndNil(DM);
+end;
+
+end.
